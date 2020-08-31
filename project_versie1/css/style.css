@@ -1,0 +1,14 @@
+body, head, p, h1, h2, h3, h4, h5, h6, img {
+  margin: 0;
+  padding: 0;
+}
+
+/* * is volgens de linter te sloom, welke kan ik dan beter gebruiken?
+
+/*
+Recources:
+
+1. Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+2.
+
+*/
