@@ -6,6 +6,7 @@ Markdown cheat cheet: [Hulp bij het schrijven van Markdown](https://github.com/a
 
 
 ## Bronnenlijst
+0. -Nog geen Bronnen-
 1. -bron 1-
 2. -bron 2-
 3. -...-
@@ -58,7 +59,7 @@ Markdown cheat cheet: [Hulp bij het schrijven van Markdown](https://github.com/a
 
 **Je startniveau:** -kies uit zwart, rood óf blauw-
 
-Mijn startnivau is redelijk middelmatig. Ik heb het vak hiervoor al een keer gevolgd, en ken daarom de basis. maar als het iets ingewikkelder wordt halverwege het blok verlies ik misschien het overzicht. Hierdoor kies ik voor de middelste piste (rood?).
+Mijn startniveau is redelijk middelmatig. Ik heb het vak hiervoor al een keer gevolgd, en ken daarom de basis. maar als het iets ingewikkelder wordt halverwege het blok verlies ik misschien het overzicht. Hierdoor kies ik voor de middelste piste (rood?).
 
 **Je focus:** -kies uit responsive óf surface plane-
 
@@ -66,10 +67,15 @@ Mijn focus tijdens dit vak zal liggen bij responsive. De website die ik wil beha
 
 **Je opdracht:** -link naar de website die je gaat namaken óf de naam van je eigen ontwerp-
 
+www.sp.nl
+
 **Screenshot(s):**
 
-![screenshot(s) die een goed beeld geven van de website die je gaat maken](images/dummy-image.svg)
+![mobiele website](images/readme/mobiel.jpg)
+![desktop website](images/readme/web.jpg)
 
 **Breakdown-schets(en):**
 
 ![-voorlopige breakdownschets(en) van een of beide pagina's van de site die je gaat maken-](images/dummy-image.svg)
+
+![Web schets](images/readme/web_schets.png)
