@@ -1,0 +1,67 @@
+/**************************/
+/**********ALL*************/
+/**************************/
+
+/*TESTING*/
+
+
+/**GRID SETUP**/
+
+body {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 10% 80% 10%;
+  grid-template-areas:
+    ". header ."
+    "main main main"
+    ". footer .";
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  grid-area: header;
+  background-color: red;
+}
+
+main {
+  grid-area: main;
+  background-color: yellow;
+  /* display: relative; /* Zo kan ik later de banner centreren. */
+}
+
+footer {
+  grid-area: footer;
+  background-color: blue;
+}
+
+/**************************/
+/**********HEADER**********/
+/**************************/
+
+main section:first-child {
+
+}
+
+main section:first-child {
+  position: relative;
+  overflow: hidden;
+}
+
+main section:first-child img {
+  width: 400%;
+  height: auto;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/**************************/
+/***********MAIN***********/
+/**************************/
+
+
+/**************************/
+/**********FOOTER**********/
+/**************************/

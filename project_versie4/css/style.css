@@ -91,7 +91,7 @@ header {
   background-color: #EC1B23;
   padding-top: 0.25em;
   position: fixed;
-  width: 100%
+  width: 100%;
 }
 
 header img:first-of-type {
@@ -118,12 +118,6 @@ nav {
   background-color: white;
 }
 
-nav:first-child {
-}
-
-nav:last-child {
-
-}
 
 header ul {
   display: flex;
@@ -151,15 +145,14 @@ main {
   background-color: #F1F1F1;
 }
 
-main div:nth-child(2) {
+main section:nth-child(2) {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content:space-between;
-  background-color: white;
 }
 
-main div:nth-child(2) p {
+main section:nth-child(2) h2 {
   color: #222;
   font-family: Helvetica, sans-serif;
   font-weight: 600;
@@ -167,12 +160,12 @@ main div:nth-child(2) p {
   padding-left: #F1F1F1;
 }
 
-main div:nth-child(2) a {
+main section:nth-child(2) a {
   margin: 0.5em;
   background-color: white;
 }
 
-main div:nth-of-type(3) {
+main section:nth-of-type(3) {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -180,25 +173,33 @@ main div:nth-of-type(3) {
   background-color: #F1F1F1;
 }
 
-main div:nth-of-type(3) img {
+main section:nth-of-type(3) img {
   width: 1.55em;
   margin: 0.45em;
   height: auto;
 }
 
-main div:nth-child(2) img{
+main section:nth-child(2) img{
   width: 20em;
   height: auto;
 }
 
-div:first-child img {
+section:first-child img {
   width: 100%;
 }
 
-div:nth-child(2) {
+section:nth-child(2) {
   display: flex;
   flex-direction: row;
+  background-color: #F1F1F1;
+}
 
+main section:nth-child(2) a {
+  background-color: white;
+}
+
+main section:last-child {
+  background-color: purple;
 }
 
 /*Button*/
@@ -214,9 +215,17 @@ button {
   margin: 1em;
 }
 
-/* head image*/
 
-main div:first-of-type {
+
+/**************************/
+/**********MAIN************/
+/**************************/
+
+
+
+/* head image */
+
+main section:first-of-type {
   padding-top: 6em;
   display: flex;
   flex-direction: column;
@@ -225,7 +234,36 @@ main div:first-of-type {
   justify-content: center;
 }
 
+/* Other banner */
 
+main section:nth-child(4) {
+  display:
+}
+
+section div:first-child {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+section div:last-child {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items:center;
+  width: 130vw;
+  height: 40em;
+  overflow: hidden;
+}
+
+section div:last-child img {
+  width: 10em;
+  height: auto;
+  margin: 1em;
+}
 /**************************/
 /**********FOOTER**********/
 /**************************/

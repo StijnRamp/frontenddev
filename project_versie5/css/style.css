@@ -1,69 +1,37 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/* * is volgens de linter te sloom, welke kan ik dan beter gebruiken?
-
-/*
-Recources:
-
-1. Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-2.
-
-*/
-
-/* Grid Setup */
+/* Setting up Grid */
 
 body {
   display: grid;
   grid-template-columns: 10% 80% 10%;
-  grid-template-rows: 10% auto 10%;
-  grid-template-areas:
-    ". header ."
-    "main main main"
-    ". footer .";
+  grid-template-rows: 10% auto 20%;
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  grid-template-areas:
+    "header header header"
+    "main main main"
+    ". footer .";
+}
+
+img {
+  width: 10px;
+  height: auto;
 }
 
 header {
   grid-area: header;
-  overflow: visible;
 }
 
 main {
   grid-area: main;
-  /* display: relative; /* Zo kan ik later de banner centreren. */
 }
 
 footer {
   grid-area: footer;
 }
 
-/**************************/
-/**********ALL*************/
-/**************************/
-
-/*Grid - never mind: te moeilijk*/
-/*
- body {
-  display: grid;
-  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
-  grid-template-rows: 7em 20.5em 6.8em 34.2em 27.5em 10.3em 12.5em;
-  grid-template-rows: 15% auto 15%;
-}
-
-header {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row: 1;
-}
-
-*/
-
-/* Ander */
+/* Styling text */
 
 a {
   text-decoration: none;
@@ -81,17 +49,16 @@ nav a {
   font-weight: 600;
   font-size: 1.5em;
 }
+
 /**************************/
 /**********HEADER**********/
 /**************************/
-
-
 
 header {
   background-color: #EC1B23;
   padding-top: 0.25em;
   position: fixed;
-  width: 100%
+  width: 100%;
 }
 
 header img:first-of-type {
@@ -118,13 +85,6 @@ nav {
   background-color: white;
 }
 
-nav:first-child {
-}
-
-nav:last-child {
-
-}
-
 header ul {
   display: flex;
   flex-direction: row;
@@ -136,12 +96,10 @@ header ul {
   padding: 0;
 }
 
-
 nav ul li {
   margin: 0;
   padding: 2em;
 }
-
 
 /**************************/
 /**********MAIN************/
@@ -151,15 +109,15 @@ main {
   background-color: #F1F1F1;
 }
 
-main div:nth-child(2) {
+main section:nth-child(2) {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content:space-between;
-  background-color: white;
+  overflow-x: hidden;
 }
 
-main div:nth-child(2) p {
+main section:nth-child(2) h2 {
   color: #222;
   font-family: Helvetica, sans-serif;
   font-weight: 600;
@@ -167,12 +125,13 @@ main div:nth-child(2) p {
   padding-left: #F1F1F1;
 }
 
-main div:nth-child(2) a {
+main section:nth-child(2) a {
   margin: 0.5em;
   background-color: white;
 }
 
-main div:nth-of-type(3) {
+
+main section:nth-of-type(3) {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -180,28 +139,46 @@ main div:nth-of-type(3) {
   background-color: #F1F1F1;
 }
 
-main div:nth-of-type(3) img {
+main section:nth-of-type(3) img {
   width: 1.55em;
   margin: 0.45em;
   height: auto;
 }
 
-main div:nth-child(2) img{
+main section:nth-child(2) img{
   width: 20em;
   height: auto;
 }
 
-div:first-child img {
+main section:first-child img {
   width: 100%;
+  height: auto;
 }
 
-div:nth-child(2) {
+
+
+section:nth-child(2) {
   display: flex;
   flex-direction: row;
-
+  background-color: #F1F1F1;
 }
 
-/*Button*/
+main section:nth-child(2) a {
+  background-color: white;
+}
+
+main section:last-child {
+  background-color: purple;
+}
+
+main section:first-of-type {
+  padding-top: 6em;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: center;
+}
+
 
 button {
   background-color: #EC1B23;
@@ -212,19 +189,51 @@ button {
   border: none;
   font-size: 1em;
   margin: 1em;
+  max-width: 30em;
+  align-self: center;
 }
 
-/* head image*/
 
-main div:first-of-type {
-  padding-top: 6em;
+/**************************/
+/**********MAIN************/
+/**************************/
+
+
+
+/* head image */
+
+
+
+/* Other banner */
+
+
+
+main section:last-child div:first-child {
+  position: relative;
+  top: 17em;
+  left: 5em;
+  bottom: auto;
+  background-color: white;
+  width: 45%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: white;
-  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0.5em;
+
 }
 
+main section:last-child div:last-child {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: auto;
+}
+
+main section:last-child img {
+  width: 10%;
+  height: auto;
+  padding: 1.25%;
+}
 
 /**************************/
 /**********FOOTER**********/
