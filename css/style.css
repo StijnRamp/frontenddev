@@ -1,0 +1,1064 @@
+
+
+
+*, *::after, *::before {
+  box-sizing: border-box;  
+}
+
+body {
+  margin: 0;
+}
+/* * is volgens de linter te sloom, welke kan ik dan beter gebruiken?
+
+/*
+Recources:
+
+1. Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+2. https://www.freecodecamp.org/news/how-to-center-anything-with-css-align-a-div-text-and-more/
+
+*/
+
+/* Grid Setup */
+
+body {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-areas:
+    ". header ."
+    "main main main"
+    "footer footer footer";
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Verbergt de carousel items die rechts het scherm afgaan */
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+}
+
+/**************************/
+/**********ALL*************/
+/**************************/
+
+
+/* Font setup */
+
+header a, main a, footer a, h1, h2, li, input, label, p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+header a {
+  color: #EC1B23;
+  text-decoration: none;
+}
+
+main a {
+  color: #222;
+  text-decoration: none;
+}
+
+footer section:last-of-type a {
+  color: #222;
+  padding: 0 1rem 0 1rem;
+  font-size: 1em;
+  font-weight: 900;
+}
+
+h1 { /* Banner header */
+  color: #222;
+  font-weight: 800;
+  padding-top: 1rem;
+}
+
+article h2 { /* Artikelen in de carousel */
+  color: #222;
+  font-size: 1em;
+  padding-left: 1rem;
+}
+
+header nav a {
+  font-weight: 600;
+  font-size: 1em;
+}
+
+
+/**************************/
+/**********HEADER**********/
+/**************************/
+
+header { /* Dit geldt voor de header op alle groottes */
+  background-color: white;
+  height: 5rem; 
+  position: fixed; /* Zorgt dat de header op de positie blijft als de gebruiker scrolt */
+  width: 100vw; /* Zorgt dat de header de volledige breedte in beslag neemt */
+  border-top: #EC1B23 0.25em solid; 
+  transition: all 0.25s ease;
+  z-index: 2; /* Zorgt ervoor dat de header altijd bovenaan staat */
+}
+
+
+
+
+
+/***** Header Search form *****/
+
+header form {
+  top: 5rem; /* Hoogte waarop de Zoek-form verschijnt */
+  background-color: #EC1B23;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+}
+
+/* Input balk van de Zoek-form in de header */
+
+header form input:first-of-type {
+  height: 3rem;
+  border: none;
+  color: #222;
+  background-color: #F1F1F1;
+  width: 80%;
+  padding-left: 1rem;
+}
+
+/* Zorgt ervoor dat de placeholder niet direct aan het begin van de inputbalk begint */
+
+form::placeholder {
+  padding-left: 1rem;
+}
+
+/* Input type submit - Om de zoek-form te verzenden */ 
+
+header form input:last-of-type {
+  height: 3rem;
+  border: none;
+  background-color: #F1F1F1;
+  background-image: url(../images/website/search_form.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  width: 2rem;
+  padding-right: 2rem;
+}
+
+/* Sluit-button om de Zoek-form af te sluiten */
+
+header form button {
+  color: #222;
+  height: 3rem;
+  background-color: #EC1B23;
+  border: none;
+}
+
+/* Sluit-button SVG */
+
+header form button svg {
+  height: 1.5rem;
+  margin-left: 2rem;
+}
+
+/* Sluit-button SVG - Kleur standaard */
+
+header form button svg .cls-1 {
+  fill: #F1F1F1;
+}
+
+/* Sluit-button SVG - Kleur Hover*/
+
+header form button .cls-1:hover {
+  fill: #222;
+}
+
+/* Sluit-button SVG - Kleur focus */
+
+header form button .cls-1:focus {
+  fill: #222;
+}
+
+/* Dit verbergt de zoek-form totdat er op de zoek-button wordt gedrukt. In dat geval wordt deze class verwijderd. */
+
+.searchbar_extendedmargin {
+  margin-top: -33rem;
+}
+
+/***** DROPDOWN MENU *****/
+
+
+/* Dit verbergt de menu-items tot een breedte van 768px */
+
+header ul {
+  display: none;  /* Dit wordt weggehaald met JS zodra de gebruiker op menu klikt */
+}
+
+/* Voor 'header ul' - Deze class staat aan tot een breedte van 768px. Hierna wordt de class verwijderd. De browser (via javascript) is continue de breedte van het scherm aan het controleren. */
+
+.dropdownmenu_ul { 
+  background-color: #F1F1F1;
+  position: absolute;
+  top: 3.75rem;
+  display: initial;
+}
+
+/* voor 'header ul li' - Deze class staat aan tot een breedte van 768px. Hierna wordt de class verwijderd. De browser (via javascript) is continue de breedte van het scherm aan het controleren. */
+
+.dropdownmenu_li {
+  position: relative;
+  left: -2.5rem;
+  list-style: none;
+  width: 100vw;
+  height: 4rem;
+  background-color: white;
+}
+
+/* Dit zorgt ervoor dat ieder li-item een balk krijgt van 0.2rem */
+
+li:nth-child(1).dropdownmenu_li {
+  top: 0.2rem;
+}
+
+li:nth-child(2).dropdownmenu_li {
+  top: 0.4rem;
+}
+
+li:nth-child(3).dropdownmenu_li {
+  top: 0.6rem;
+}
+
+li:nth-child(4).dropdownmenu_li {
+  top: 0.8rem;
+}
+
+/* voor 'header ul li a' - Deze class staat aan tot een breedte van 768px. Hierna wordt de class verwijderd. De browser (via javascript) is continue de breedte van het scherm aan het controleren. */
+
+a.dropdownmenu_a {
+  position: relative;
+  top: -0.4rem;
+  text-decoration: none;
+}
+
+/****** MENU ******/
+
+/* Dit geeft de li-items 2rem padding. In beide dropdown (bij minder dan 768px) en het normale menu */
+
+header nav ul li { 
+  margin: 0;
+  padding: 2rem;
+}
+
+/* Plaatsing en grootte van het menu op mobiel */ 
+
+/* Geldt voor alle groottes. */
+
+header nav { 
+  position: relative;
+}
+
+/* logo SP - Geldt alleen voor de kleinere schermen  */
+
+header nav a:nth-of-type(1) svg { 
+  position: absolute;
+  left: 0.75rem;
+  top: 1.5rem;
+  height: 1.5em;
+  width: auto;
+  transition: all 0.25s ease;
+  fill: #EC1B23;
+}
+
+/* Groote van hamburgermenu - Geldt alleen voor de kleinere schermen */
+
+header nav button:first-of-type svg { 
+  height: 2em;
+  width: auto;
+}
+
+/* De plaatsing van het Hamburgermenu - Geldt vanaf het kleinste scherm*/ 
+
+header nav button:first-of-type { 
+  position: absolute;
+  right: 4rem;
+  top: 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  background-color: white;
+  border: none;
+}
+
+/* Groote van de zoek-svg - Geldt vanaf de kleinere schermen */
+
+header nav button:last-of-type svg { 
+  height: 2.5em;
+  width: auto;
+  transition: all 0.25s ease;
+}
+
+.zoeken_svg { /* Zoeken en menu - kleur */
+  fill: none;
+  stroke: #EC1B23;
+}
+
+/* Focus state van de zoeken SVG */
+
+button:focus .zoeken_svg {
+  stroke: #222;
+}
+
+/* Focus state van het SP-logo svg */
+
+header a:focus svg {
+  fill: #222;
+}
+
+/* Plaatsing van de zoek-button - Geldt vanaf de kleinere schermen */ 
+
+header nav button:last-of-type { 
+  position: absolute;
+  right: 0.45rem;
+  top: 1.4rem;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background-color: white;
+  border: none;
+}
+
+/**************************/
+/**********MAIN************/
+/**************************/
+
+
+main {
+  background-color: #F1F1F1;
+}
+
+/****** CAROUSEL ******/
+
+/* Carousel-section - Huisvest de artikelen */
+
+main section:nth-child(2) {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content:space-between;
+  background-color: #F1F1F1;
+}
+
+/* De link die om de artikelen gewikkeld is - Dit maakt het gehele artikel linkbaar */
+
+main section:nth-child(2) a {
+  margin: 0.5rem;
+  background-color: white;
+}
+
+/* Carousel Foto's */
+
+main section:nth-child(2) img{
+  width: 20rem;
+  height: auto;
+}
+
+/* Carousel bolletjes */
+
+main section:nth-of-type(3) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  background-color: #F1F1F1;
+}
+
+/* Carousel bolletjes juiste grootte en afstand */
+
+main section:nth-of-type(3) img { 
+  width: 1.5rem;
+  padding-bottom: 1rem;
+  margin: 0.15rem;
+  height: auto;
+} 
+
+
+
+
+
+/*Button*/
+
+main button, footer section:first-of-type button, footer section:nth-child(2) button:last-of-type {
+  background-color: #EC1B23;
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border: none;
+  font-size: 1em;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+
+/* head image */
+
+main section:first-child img { /* Header image size for mobile */
+  margin-left: -50%;
+  width: 200%;
+  transition: all 0.75s linear;
+}
+
+main section:first-of-type {
+  padding-top: 5rem; /* Zorgt ervoor dat de banner niet onder het gefixte menu verdwijnt */
+  background-color: white;
+}
+
+/* De link om de banner-image zorgt ervoor dat alles klikbaar is - hierop klikken brengt je naar de tweede pagina */ 
+
+main section:first-of-type a {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
+/* Button van de boverste Banner image*/ 
+
+main section:first-of-type button {
+  width: 13rem;
+  position: relative;
+  left: 50%;
+  margin-left: -6.5rem;
+}
+
+/***** Onderste Banner ******/
+
+main section:last-child {
+  background-color: white;
+}
+
+/* Text boven / op de banner */ 
+
+main section div:first-child {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center; 
+}
+
+/* Banner-foto's in een Grid */
+
+main section div:last-child {
+  display: grid;
+  grid-template-areas: "1 2 3" "4 5 6" "7 8 9";
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+/* Foto's worden toegevoegd naarmate het scherm groter wordt */ 
+
+.images-disappear-smallScreen {
+  display: none; /* Zorgt ervoor dat er niet teveel foto's in de banner staan */ 
+}
+
+/* De foto's nemen de volle ruimte in beslag die hen gegeven wordt in het grid */
+
+section div:last-child img {
+  width: 100%;
+}
+
+
+/**************************/
+/**********FOOTER**********/
+/**************************/
+
+
+/**** FOOTER ****/
+
+/* De links */
+
+footer section:last-of-type ul {
+  list-style-type: none;
+  padding: 0.5rem;
+  display: grid;
+  justify-content: center;
+  grid-template-areas: 
+    "1 2 3"
+    "4 5 6"
+    "7 8 9"
+    "10 11 12"
+    "13 14 15";
+  transition: all 0.25s ease;
+}
+
+/* De Socials */
+
+footer section:first-of-type {
+  background-color: #EC1B23;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+
+/* Social media links */
+
+footer section:first-of-type div:first-of-type ul {
+  margin-right: 2.5rem;
+}
+
+/* Contact button */
+
+body footer section div button:first-of-type {
+  border: 1px white solid;
+}
+
+/* Nieuwsbrief Button */
+
+body footer section div button:last-of-type {
+  background-color: white;
+  color: #EC1B23;
+}
+
+/* Zodat de social media iconen op 1 lijn gaan */
+
+footer section:first-of-type ul { 
+  display: flex; 
+  list-style-type: none;
+}
+
+/* Spacing van de social media iconen */
+
+footer section:first-of-type ul li {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+/* Styling van de social media iconen */
+
+footer section:first-of-type nav li {
+  padding: 0.75rem;
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
+  border: white 1px solid;
+}
+
+/* Padding van de links */
+
+footer section:last-of-type ul li {
+  padding: 0.75rem;
+  font-size: 0.5em;
+  font-weight: 900;
+  transition: all 0.25s ease;
+}
+/***** HOVER en FOCUS *****/
+
+/* Links in de header */
+
+header a:hover {
+  color: #222;
+}
+
+header a:focus {
+  color: #222;
+}
+
+/* Buttons in de header */
+
+header nav button:hover {
+  color: #222;
+}
+
+header nav button:focus {
+  color: #222;
+}
+
+/* Buttons in de main en footer */
+
+main button:hover, footer section:first-of-type button:hover, footer section:last-of-type button:hover, footer section div button:last-of-type:hover {
+  border: none;
+  background-color: #222;
+  color: white;
+}
+
+main button:focus, footer section:first-of-type button:focus, footer section:last-of-type button:focus, footer section div button:last-of-type:focus {
+  border: none;
+  background-color: #222;
+  color: white;
+}
+
+/* Links in de footer */
+
+footer a:hover {
+  text-decoration: none;
+}
+
+footer a:focus {
+  text-decoration: none;
+}
+
+/* Logo in de header */
+
+header nav a:nth-of-type(1) svg:hover {
+  fill: black;
+}
+
+header nav a:nth-of-type(1) svg:focus {
+  fill: black;
+}
+
+ /* Zoeken en hamburgermenu - hoverstate */
+
+button:hover .zoeken_svg {
+  stroke: #222;
+}
+
+button:focus .zoeken_svg { 
+  stroke: #222;
+}
+
+/* Button in de zoek-form */
+
+header form button:hover {
+  fill: #222;
+}
+
+header form button:focus {
+  fill: #222;
+}
+
+/* Social media iconen */
+
+footer section:first-of-type nav li:hover { 
+  border: none;
+  background-color: #222;
+}
+
+footer section:first-of-type nav li:focus { 
+  border: none;
+  background-color: #222;
+}
+
+footer section:first-of-type nav svg {
+  fill: #F1F1F1;
+  height: 1.3em;
+  width: auto;
+}
+
+/***** Footer Form *****/
+
+
+footer section:nth-child(2) {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(43, 25, 25, 0.65);
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Deze class wordt verwijders via javascript door op de nieuwsbrief-knop te drukken */
+
+.nieuwsbrief_section {
+  display: none;
+}
+
+/* Plaatsing en styling van de exit-button op de nieuwsbrief form */ 
+
+footer form button:first-of-type {
+  position: absolute;
+  top: 2rem;
+  right: -2rem;
+  width: 5rem;
+  background-color: white;
+  border: none;
+}
+
+/* Vormgeving van de exit-button SVG */
+
+footer form button:first-of-type svg {
+  height: 1.5em;
+}
+
+footer form button:first-of-type svg .cls-1 {
+  height: 2em;
+  margin-left: 2rem;
+  fill: #F1F1F1;
+  padding: 2rem;
+}
+
+/* Hover state Exit-button*/
+
+footer form button:first-of-type svg .cls-1:hover {
+  fill: #222;
+}
+
+/* Focus state links */
+
+a:focus {
+  border: orange 0.25rem solid;
+}
+
+/* Focus state articles */
+
+article:focus {
+  border: orange 0.25rem solid;
+}
+
+/* Focus state nieuwsbrief-form button */ 
+
+footer form button:first-of-type svg .cls-1:focus {
+  fill: #222;
+}
+
+/* Vormgeving Footer Form */ 
+
+footer form {
+  position: fixed;
+  background-color: white;
+  left: 1.5rem;
+  right: 1.5rem;
+  max-width: 30rem;
+  top: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 13fr;
+  align-items: center;
+  padding: 2rem;
+}
+
+footer form h2 {
+  grid-column: 1/-1;
+  padding: 0;
+  margin: 0;
+}
+
+footer form p {
+  grid-column: 1/-1;
+  padding: 0;
+}
+
+footer form button {
+  grid-column: 1 / -1;
+  width: 10rem;
+  margin: 0.5em 0 0.5em 0;
+}
+
+footer form input {
+  grid-column: 1/-1;
+  background-color: #F1F1F1;
+  border: none;
+  height: 3rem;
+}
+
+footer form label {
+  grid-column: 1/-1;
+  padding: 0.5rem 0 0.5rem 0;
+  font-weight: 900;
+}
+
+/* Rode kleur voor de '*' in de nieuwsbrief-form */
+
+mark {
+  color: #EC1B23;
+  background-color: white;
+}
+
+footer label:last-of-type {
+  grid-column: 2 / -1;
+  grid-row: 9 / 10;
+}
+
+footer input:last-of-type {
+  grid-column: 1 / 2;
+  grid-row: 9 / 10;
+  position: absolute;
+  left: 0;
+}
+
+/* Media query speciaal voor de plaatsing van de nieuwsbrief-form */
+
+@media screen and (min-width: 528px) {
+  footer section:nth-child(2) form {
+    left: 50%;
+    margin-left: -15rem;
+  }
+}
+
+/* Media Query voor tablet */
+
+@media screen and (min-width: 768px) {
+
+  /* making the menu larger */ 
+
+  header { /* Dit geldt voor de header op alle groottes */
+    height: 6rem; 
+    transition: all 0.25s ease;
+  }
+
+  header form {
+    top: 6rem;
+  }
+
+  header nav a:nth-of-type(1) svg { /* logo SP - Geldt voor de medium schermen  */
+    top: 2rem;
+    transition: all 0.25s ease;
+  }
+
+  header nav button:last-of-type {
+    top: 1.5rem;
+  }
+
+  /* First banner sizing */
+  
+  main section:first-of-type {
+    padding-top: 6rem;
+  }
+  
+
+  /* other banner */
+
+  main section:nth-child(4) {
+    position: relative;
+  }
+
+  main section div:first-child {
+    align-items: baseline;
+    background-color: white;
+    position: absolute;
+    height: 11rem;
+    margin-top: -5.5rem;
+    top: 50%; 
+    left: 2rem;
+    padding: 1em 1.5rem 1em 1.5rem;
+  }
+
+  main section div:first-child button {
+    margin-left: 0; /* Zorgt ervoor dat de button op dezelfde lijn staat als de header */
+  }
+
+  h1 {
+    padding: 0;
+    text-align: left;
+  }
+
+
+  main section div:last-child { /* Meer fotos in de banner naarmate het scherm groter wordt */ 
+    display: grid;
+    grid-template-areas: "1 2 3 4 5 6 7 8" "9 10 11 12 13 14 15 16" "17 18 19 20 21 22 23 24";
+    grid-gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .images-disappear-smallScreen {
+    display: initial;
+  }
+  
+  .buttons-hidden-mediumscreen { /* Verstopt de buttons als het scherm te groot wordt voor de carousel */
+    display: none;
+    transition: all 0.5s ease;
+  }
+
+  main section:nth-of-type(3) img { /* Carousel bolletjes juiste grootte en afstand */
+    width: 1.55rem;
+    margin: 0.45rem;
+    height: auto;
+  }
+
+  /* Plaating van de menu-items in de header */
+
+  header nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+  
+  
+  header ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    list-style: none;
+    justify-content:space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  header nav ul { /* Zo blijft de nav op een mooie hoogte */
+    position: absolute;
+    top: 1.3rem;
+  }
+  
+  
+  
+  header nav ul li {
+    margin: 0;
+    padding: 2rem;
+  }
+  
+  main section:first-child img { /* Header image size for mobile */
+    height: auto;
+    width: 100%;
+    margin: 0;
+    transition: all 0.75s linear;
+  }
+
+  h1 {
+    padding-right: 1rem;
+  }
+
+  header nav a:nth-of-type(2) {
+    display: none;
+  }
+
+  header nav button:first-of-type {
+    display: none; /* Hamburgermenu will disappear when the screen gets larger than 768px*/
+  }
+
+  /* Making the menu smaller */
+
+  header nav ul li {
+    padding: 1rem;
+  }
+
+  /* FOOTER */
+
+  footer section:last-of-type ul {
+    padding: 0.5rem;
+    display: grid;
+    grid-template-areas: 
+      "1 2 3 4 5"
+      "6 7 8 9 10"
+      "11 12 13 14 15";
+    transition: all 0.25s ease;
+  }
+  
+  footer section:last-of-type ul li {
+    padding: 0.85rem;
+    font-size: 0.50rem;
+    font-weight: 900;
+    transition: all 0.25s ease;
+  }
+
+  /* Footer buttons social */
+
+  footer section:first-of-type {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  footer section:first-of-type {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    transition: all 0.5s ease;
+  }
+  footer section:last-of-type a {
+    font-size: 1em;
+    transition: all 0.5s ease;
+  }
+
+}
+
+/* Media Query voor desktop */
+
+@media screen and (min-width: 1200px)  {
+  
+  /* Making the menu larger */
+
+  header nav a {
+    font-weight: 600;
+    font-size: 1.5em;
+    transition: all 0.5s ease;
+  }
+
+  header nav ul li {
+    padding: 2rem;
+  }
+
+  header {
+    height: 6.75rem;
+  }
+
+  header form {
+    top: 6.75rem;
+  }
+
+  header nav ul { /* Zo blijft de nav op een mooie hoogte */
+    position: absolute;
+    top: 0.55rem;
+  }
+  
+
+  header nav button:last-of-type {
+    position: absolute;
+    top: 0.02rem;
+    top: 2.75rem;
+  }
+
+  .buttons-hidden-fullscreen {
+    display: none;
+    transition: all 0.5s ease;
+  }
+
+  /* Bigger menu logo */
+
+  header nav a:nth-of-type(1) svg {
+    top: 1.75rem;
+    height: 2em;
+    transition: all 0.25s ease;
+  }
+
+  /* Bigger search icon*/
+
+  header nav button:last-of-type {
+    top: 1.75rem;
+    transition: all 0.25s ease;
+  }
+
+  header nav button:last-of-type svg {
+    height: 3.5em;
+    transition: all 0.25s ease;
+  }
+
+  /* FOOTER */
+
+  footer section:last-of-type ul {
+    padding: 0.5rem;
+    display: grid;
+    grid-template-areas: 
+      "1 2 3 4 5"
+      "6 7 8 9 10"
+      "11 12 13 14 15";
+    transition: all 0.25s ease;
+  }
+  
+  footer section:last-of-type ul li {
+    padding: 0.5rem;
+    font-size: 0.75em;
+    transition: all 0.25s ease;
+  }
+
+  /* Footer buttons social */
+
+  footer section:first-of-type {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    transition: all 0.5s ease;
+  }
+  
+}
