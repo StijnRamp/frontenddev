@@ -54,9 +54,9 @@ Mijn website heeft een flinke inhaalslag gemaakt. Mn grid en carousel kloppen, i
 
 **Screenshot(s):**
 
-![website-week6-bovenkant](images/readme/website-week6-bovenkant)
+![website-week6-bovenkant](images/readme/website-week6-bovenkant.png)
 
-![website-week6-onderkant](images/readme/website-week6-onderkant)
+![website-week6-onderkant](images/readme/website-week6-onderkant.png)
 
 ### Agenda voor meeting
 
